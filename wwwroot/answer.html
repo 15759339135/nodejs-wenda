@@ -1,0 +1,60 @@
+<html>
+        
+        <head>
+            <meta charset="utf-8">
+            <meta name="author" content="王超锋">
+            <title>回答</title>
+            <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css ">
+            <link rel="stylesheet" href="./styles/common.css">
+            <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js "></script>
+            <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script src="./js/jquery.cookie.js"></script>
+            <style>
+        
+            </style>
+        </head>
+        
+        <body>
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-title">
+                    <div class="container">
+                        <div class="row">
+                            <span onclick="history.go(-1)"><span class="glyphicon glyphicon-chevron-left pull-left"></span></span>
+                            <span>回答</span>
+                            <span onclick="location.href='/'" class="glyphicon glyphicon-home pull-right"></span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container">
+                <div class="row">
+                   <form action="/api/user/answer" method="post">
+                        <div class="form-group">
+                            <textarea class="form-control" name="content" cols="30" rows="8" placeholder="请输入回答的答案"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-info form-control">提交回答</button>
+                   </form>
+                </div>
+            </div>
+            <script>
+            $('form').submit(function (e) {
+                e.preventDefault();
+
+                var question = $.cookie('question');
+                var formData =$(this).serializeArray();
+                // 把获取的cookie值和回答问题的内容拼接到一起,然后发送给服务器
+                formData.push({
+                    name:'question',
+                    value:question
+                })
+                $.post(this.action,formData,(data)=>{
+                    if (data.code == 'success') {
+                        location.href = '/';
+                    }
+                })
+            })
+            </script>
+        </body>
+        
+        </html>

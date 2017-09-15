@@ -1,0 +1,40 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="王超锋">
+    <title>上传头像</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css ">
+    <link rel="stylesheet" href="../styles/common.css">
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js "></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    
+    <style>
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-title">
+            <div class="container">
+                <div class="row">
+                    <span onclick="history.go(-1)"><span class="glyphicon glyphicon-chevron-left pull-left"></span></span>
+                    <span>上传头像</span>
+                    <span onclick="location.href='/'" class="glyphicon glyphicon-home pull-right invisible"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <form action="/api/user/photo" method="post" enctype="multipart/form-data">
+                <input type="file" name="photo" accept=".jpg,.png">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary form-control">上传</button>
+                </div>
+            </form>
+        </div>
+    </div>
+  <script src="../script/user/photo.js"></script>
+</body>
+
+</html>

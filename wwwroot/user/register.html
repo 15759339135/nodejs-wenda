@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="王超锋">
+    <title>注册</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css ">
+    <link rel="stylesheet" href="../styles/common.css">
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js "></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-title">
+            <div class="container">
+                <div class="row">
+                    <span onclick="history.go(-1)"><span class="glyphicon glyphicon-chevron-left pull-left"></span></span>
+                    <span>注册</span>
+                    <span onclick="location.href='/user/signin.html'" class="glyphicon glyphicon-user pull-right "></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="contanier">
+        <form method="post" action="/api/user/register">
+            <div class="form-group">
+                <input type="text" class="form-control" id="petname" name="petname" placeholder="请输入昵称" required pattern="^[0-9a-zA-Z\u4e00-\u9fa5]{2,16}$">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" name="password" required placeholder="请输入密码" pattern="^.{6,16}$">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="confirmPsw" required placeholder="请再次输入密码" pattern="^.{6,16}$">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" name="email" required placeholder="请输入邮箱" pattern="^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$">
+            </div>
+            <div class="form-group">
+                <label class="radio-inline">
+                <input type="radio" name="gender" id="man" value="男" checked> 男
+               </label>
+                <label class="radio-inline">
+                <input type="radio" name="gender" id="woman" value="女"> 女
+                </label>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="course">
+                    <option value="HTML5">HTML5</option>
+                     <option value="iOS">iOS</option>
+                    <option value="Java">Java</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <div>
+                    <button type="submit" class="btn btn-primary btn-block ">注册</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <script src="../script/user/regiter.js">
+
+    </script>
+</body>
+
+</html>
